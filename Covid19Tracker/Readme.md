@@ -1,17 +1,16 @@
-#Covid19 Patient Management REST API
+# Covid19 Patient Management REST API
 
-REST Implmentation
+## REST Implmentation
 
-Problem
 Making track of Covid19 Patient details.Adding new patient,Changing status of the Patients and Fetching details of the patient using different Unique reference.
 
 
 Concepts Covered in this project.
-1.)REST Controller.(All the methods)
-2.)JPA Repository.
-3.)Swagger2 API documentation.
-4.)Custom Validation by using implementation of ConstraintValidator interface.
-5.)Exception handling by extending ResponseEntityExceptionHandler.
+1. REST Controller.(All the methods)
+2. JPA Repository.
+3. Swagger2 API documentation.
+4. Custom Validation by using implementation of ConstraintValidator interface.
+5. Exception handling by extending ResponseEntityExceptionHandler.
 
 
 
@@ -54,7 +53,7 @@ java -jar target/covid.jar
 
 Request and response for api calls
 
-After runnig the project just use http://<IP>:<PORT>/swagger-ui.html to get the detailed info about apis.
+After runnig the project just use http://localhost:port/swagger-ui.html to get the detailed info about apis.
 
 ## Author
 Subhash Konar
