@@ -22,6 +22,8 @@ import com.learn.validator.EnumValidator;
 import com.learn.validator.FamilyValidator;
 import com.learn.validator.PatientStatus;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -31,12 +33,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name="PATIENTS")
-
-public class Patient implements Cloneable {
+@ApiModel(value="Patient detailed info")
+public class Patient {
 
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@ApiModelProperty(value="Auto Generated value of Patient")
 	private long id;
 	
 	
@@ -44,6 +47,7 @@ public class Patient implements Cloneable {
 	@Pattern(regexp = "^[A-Za-z]{5}[0-9]{4}[A-Za-z]{1}$", message = "Incorrect Pan No")
 	
 	@Column(unique=true)
+	@ApiModelProperty(value="Unnique Pan of Patient")
 	private String pan;
 	
 	@Valid
@@ -81,15 +85,6 @@ public class Patient implements Cloneable {
 	@JoinColumn(name="patient_id")
 	@JsonManagedReference
 	private  List<FamilyMember> familymembers=new ArrayList<FamilyMember>();
-
-	 public  Object clone() throws
-     CloneNotSupportedException 
-		{ 
-		 Patient patient = (Patient) super.clone();
-		 patient.familymembers = new ArrayList<>(this.familymembers);
-		   return patient;
-		
-		} 
 
 	
 }

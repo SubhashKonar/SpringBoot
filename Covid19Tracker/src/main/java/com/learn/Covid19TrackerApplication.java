@@ -17,7 +17,7 @@ import reactor.core.publisher.Mono;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
-@EnableSwagger2
+
 public class Covid19TrackerApplication  {
 
 	@Autowired

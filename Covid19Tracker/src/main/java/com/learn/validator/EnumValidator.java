@@ -10,6 +10,11 @@ import javax.validation.Constraint;
 import javax.validation.Payload;
 import javax.validation.ReportAsSingleViolation;
 
+/**
+ * 
+ * @author konar
+ *
+ */
 
 @Documented
 @Constraint(validatedBy = EnumValidatorImpl.class)
