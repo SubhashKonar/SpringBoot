@@ -5,7 +5,6 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.reactive.function.client.WebClient;
 
 import com.learn.exception.PatientNotFoundException;
 import com.learn.model.Patient;
@@ -51,6 +50,8 @@ public class PatientServiceImpl implements PatientService {
 
 	@Override
 	public Patient addUpdatePatient(Patient patient) {
+		
+		
 		Optional<Patient> foundPoptional=prepo.findByAadhaar(patient.getAadhaar());
 		if(foundPoptional.isPresent())
 		{
@@ -60,8 +61,31 @@ public class PatientServiceImpl implements PatientService {
 			//existingPatient.setFamilymembers(patient.getFamilymembers());
 			return  prepo.save(existingPatient);
 		}
+		// by mobile
+		 foundPoptional=prepo.findByMobile(patient.getMobile());
+		if(foundPoptional.isPresent())
+		{
+			Patient existingPatient=foundPoptional.get();
+			existingPatient.setStatus(patient.getStatus());
+			
+			//existingPatient.setFamilymembers(patient.getFamilymembers());
+			return  prepo.save(existingPatient);
+		}
+		// by pan
+		 foundPoptional=prepo.findByPan(patient.getPan());
+		if(foundPoptional.isPresent())
+		{
+			Patient existingPatient=foundPoptional.get();
+			existingPatient.setStatus(patient.getStatus());
+			
+			//existingPatient.setFamilymembers(patient.getFamilymembers());
+			return  prepo.save(existingPatient);
+		}
+		
 		return  prepo.save(patient);
 	}
+
+	
 
 	@Override
 	public void deletePatientByID(long id) {
