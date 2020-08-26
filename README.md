@@ -9,3 +9,12 @@
 * Swagger2 API documentation.
 * Custom Validation by using implementation of ConstraintValidator interface.
 * Exception handling by extending ResponseEntityExceptionHandler.
+
+## MicroServices
+
+### Concepts Covered in this project.
+
+* WebClient.
+* Microservice Communication. 
+* Eureka Server discovery.
+* Eureka Client registration.
